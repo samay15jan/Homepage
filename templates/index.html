@@ -35,14 +35,14 @@
           document.getElementById('txt').innerHTML =  h + ":" + m;
           setTimeout(startTime, 1000);
         }
-        
+
         function checkTime(i) {
           if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
           return i;
         }
     </script>
 
-      
+
     <style>
 
         body {
@@ -50,49 +50,93 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
-    
+
         li {
             font-size: 80px;
             color: black;
             font-family: Arial, Helvetica, sans-serif;
             text-align:center;
         }
-         
 
-        
+
+
         .text{
-          font-size: 15px;
-          padding-left: 5px;
-          text-align: left;
+            font-size: 15px;
+            padding-left: 5px;
+            text-align: left;
 
         }
-        
+
         .flex-container {
-          margin-left: 25%;
-          margin-top: 15%;
-          display: flex;
-          background-color: black;
-          height: 200px;
-          width: 50%;
-          color: white;
-          opacity: 0.6;
-          border-radius: 15px
-        }
-        
-        .flex-container1{ 
-          width: 50%;
-          padding: 20px;
-          margin-left: 25%;
+            margin-left: 25%;
+            margin-top: 15%;
+            display: flex;
+            background-color: black;
+            height: 200px;
+            width: 50%;
+            color: white;
+            opacity: 0.6;
+            border-radius: 15px
         }
 
-    .logo{
-      border-radius: 50%;
-      width: 35px;
-      margin-top: 1px;
-    }
-    body, html {height:100%;}
-    div.wrap {height:100%; overflow:hidden;}
-    body {overflow: hidden; }
+        .flex-container1{
+            width: 50%;
+            padding: 20px;
+            margin-left: 25%;
+            overflow: auto;
+        }
+
+        .message-bar{
+            padding: 5px;
+            width: 590px;
+            outline: none;
+            border-radius: 15px;
+        }
+
+        .input-bar {
+            width: 200%;
+            margin-top: 90px;
+            margin-left: 10px;
+        }
+
+        @media (max-width: 480px){
+            .flex-container1 {
+                flex-direction: column;
+                border-radius: 15px;
+            }
+
+            .message-bar{
+                width:100%;
+                outline: none;
+                border-radius: 15px;
+            }
+
+
+            .flex-container {
+                flex-direction: column;
+                display: flex;
+                background-color: black;
+                height: 50%;
+                width: 50%;
+                color: white;
+                opacity: 0.6;
+                border-radius: 15px
+            }
+
+            .input-bar {
+                width:80%;
+            }
+        }
+
+        .avatar-section{
+            border-radius: 50%;
+            width: 35px;
+            margin-top: 1px;
+        }
+
+        body, html {height:100%;}
+        div.wrap {height:100%; overflow:hidden;}
+        body {overflow: hidden; }
     </style>
 </head>
 
@@ -103,22 +147,21 @@
   <script async src="https://cse.google.com/cse.js?cx=61342ac624e284806">
   </script>
   <div class="flex-container1">
-  <div  class="gcse-searchbox-only"></div>
-</div>
+    <div class="gcse-searchbox-only"></div>
+  </div>
 
 
     <div class="flex-container">
       <div>
-        <p style="padding: 3px;" class="text"><img src="https://github.com/samay15jan/homepage/blob/main/bg/logo.jpg?raw=true" class="logo"> : {{ response }}</p>  
-        <form method="POST" action="/process">
-          <div style="width: 200%; margin-top: 90px; margin-left: 10px;">
-            <input type="send" name="input" placeholder="Send a message" autocomplete="off" style="padding: 5px; width: 590px;">
+        <p style="padding: 3px;" class="text"><img src="https://github.com/samay15jan/homepage/blob/main/bg/logo.jpg?raw=true" class="avatar-section"> : {{ response }}</p>
+        <form method="POST" action="/process" style="word-wrap: break-word;">
+          <div class="input-bar">
+            <input type="send" autofocus name="input" placeholder="Send a message" autocomplete="off" class="message-bar"></input>
             <button type="submit" class="btn btn-outline-secondary" style="color: white;">Send</button>
           </div>
         </form>
       </div>
     </div>
-    
-</body>
 
+</body>
 </html>
